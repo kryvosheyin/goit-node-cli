@@ -4,6 +4,11 @@ import { nanoid } from "nanoid";
 
 const contactsPath = path.resolve("src", "database", "contacts.json");
 
+/**
+ * Write the given array of contacts to the contacts database file.
+ * @param {Array<Object>} contacts - An array of contact objects
+ * @returns {Promise<void>}
+ */
 const updateContacts = async (contacts) => {
   await writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 };
@@ -27,6 +32,11 @@ export async function getContactById(contactId) {
   return contacts.find((contact) => contact.id === contactId) || null;
 }
 
+/**
+ * Remove a contact by id
+ * @param {string} contactId - The ID of the contact to remove
+ * @returns {Object|null} The removed contact object if found, or null if not found
+ */
 export async function removeContact(contactId) {
   const contacts = await listContacts();
   const index = contacts.findIndex((contact) => contact.id === contactId);
@@ -35,6 +45,12 @@ export async function removeContact(contactId) {
   await updateContacts(contacts);
   return removedContact;
 }
+
+/**
+ * Add a new contact to the list
+ * @param {Object} contactData - The contact data to add (name, email, phone)
+ * @returns {Object} The newly added contact object, including a generated ID
+ */
 
 export async function addContact(contactData) {
   const contacts = await listContacts();

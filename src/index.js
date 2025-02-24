@@ -17,6 +17,19 @@ program.parse();
 
 const options = program.opts();
 
+/**
+ * This function invokes the specified action with the given options.
+ * It takes an object with an action property and any other action-specific options.
+ * It uses a switch to determine which action to take.
+ * If the action is successful, it logs the result to the console.
+ * If the action fails, it logs the error message to the console.
+ * If the action is unknown, it logs a warning to the console.
+ *
+ * @param {Object} options - An object with an action property and any other action-specific options.
+ * @param {string} options.action - The action to take. One of "list", "get", "add", or "remove".
+ * @param {string} [options.id] - The id of the contact to get or remove. Required for "get" and "remove".
+ * @param {Object} [options.data] - An object with the name, email, and phone of the contact to add. Required for "add".
+ */
 async function invokeAction({ action, id, ...data }) {
   try {
     switch (action) {
