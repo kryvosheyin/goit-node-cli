@@ -1,0 +1,24 @@
+{
+  "name": "goit-node-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kryvosheyin/goit-node-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kryvosheyin/goit-node-cli/issues"
+  },
+  "homepage": "https://github.com/kryvosheyin/goit-node-cli#readme",
+  "description": "",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "nanoid": "^5.1.2"
+  }
+}
